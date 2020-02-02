@@ -23,9 +23,9 @@ Once you get all the required softwares and if possible the additional tools ins
 
 #### Database
 * Run the SQL files from the folders below, on the MySQL Database. This will setup the datamodel and also insert sample seed data for the application to begin
-     * ``https://github.com/amtul-nazneen/stock-brokerage-webapp/tree/master/sqlDump/mySQL/datamodel``
-     * ``https://github.com/amtul-nazneen/stock-brokerage-webapp/tree/master/sqlDump/mySQL/seedData``
-* Make sure you update the config properties with your MySQL ``root username and password`` here: ``https://github.com/amtul-nazneen/stock-brokerage-webapp/blob/master/src/app/config/Config.java``
+     * ``https://github.com/amtul-nazneen/stock-brokerage-exchange-webapp/tree/master/stock-brokerage-webapp/sqlDump/mySQL/datamodel``
+     * ``https://github.com/amtul-nazneen/stock-brokerage-exchange-webapp/tree/master/stock-brokerage-webapp/sqlDump/mySQL/seedData``
+* Make sure you update the config properties with your MySQL ``root username and password`` here: ``https://github.com/amtul-nazneen/stock-brokerage-exchange-webapp/blob/master/stock-brokerage-webapp/src/app/config/Config.java``
 
 #### Tomcat
 * After downloading the Apache Tomcat zip, make three copies of the tomcat folder [Ex: tomcat1, tomcat2, tomcat3]
@@ -52,19 +52,19 @@ Once you get all the required softwares and if possible the additional tools ins
      
 ### Cache
 * Install MemCache for your OS and once done, make sure that its running on ``host:127.0.01, port:11211``
-* In the event that your host and port details are different, make sure you update this config file ``https://github.com/amtul-nazneen/stock-brokerage-website/blob/master/src/app/config/Config.java``
+* In the event that your host and port details are different, make sure you update this config file ``https://github.com/amtul-nazneen/stock-brokerage-exchange-webapp/blob/master/stock-brokerage-website/src/app/config/Config.java``
 
 
 ### Queue
 * Install RabbitMQ for your OS and once done, make sure that its running on ``host:127.0.01, port:11211``
-* In the event that your host is different, make sure you update this config file ``https://github.com/amtul-nazneen/stock-brokerage-webapp/blob/master/src/app/config/Config.java with the RabbitMQ Host Details``
-* If you want to change the Queue details for Asynchronous Buy and Sell, you can update the details here: ``https://github.com/amtul-nazneen/stock-brokerage-webapp/blob/master/src/app/config/Constants.java``
+* In the event that your host is different, make sure you update this config file ``https://github.com/amtul-nazneen/stock-brokerage-exchange-webapp/blob/master/stock-brokerage-webapp/src/app/config/Config.java with the RabbitMQ Host Details``
+* If you want to change the Queue details for Asynchronous Buy and Sell, you can update the details here: ``https://github.com/amtul-nazneen/stock-brokerage-exchange-webapp/blob/master/stock-brokerage-webapp/src/app/config/Constants.java``
 
 #### Applications
 * Download the latest code for all three applications from the links below or from E-Learning
-     * ``https://github.com/amtul-nazneen/stock-brokerage-website``
-     * ``https://github.com/amtul-nazneen/stock-brokerage-webapp``
-     * ``https://github.com/amtul-nazneen/stock-exchange-webapp``
+     * ``https://github.com/amtul-nazneen/stock-brokerage-exchange-webapp/tree/master/stock-brokerage-website``
+     * ``https://github.com/amtul-nazneen/stock-brokerage-exchange-webapp/tree/master/stock-brokerage-webapp``
+     * ``https://github.com/amtul-nazneen/stock-brokerage-exchange-webapp/tree/master/stock-exchange-webapp``
 * Open each of the applications in a separate Eclipse instance
 * Setup the following applications in Eclipse with the following servers
      * ``stock-brokerage-website: tomcat1``
@@ -73,9 +73,9 @@ Once you get all the required softwares and if possible the additional tools ins
 
 ### Misc Configurations
 * Below are the list of all configuration files that are used in the project. If any changes, make sure to update these
-     * ``https://github.com/amtul-nazneen/stock-brokerage-website/tree/master/src/app/config``
-     * ``https://github.com/amtul-nazneen/stock-brokerage-webapp/tree/master/src/app/config``
-     * ``https://github.com/amtul-nazneen/stock-exchange-webapp/blob/master/src/app/config``
+     * ``https://github.com/amtul-nazneen/stock-brokerage-exchange-webapp/tree/master/stock-brokerage-website/tree/master/src/app/config``
+     * ``https://github.com/amtul-nazneen/stock-brokerage-exchange-webapp/tree/master/stock-brokerage-webapp/tree/master/src/app/config``
+     * ``https://github.com/amtul-nazneen/stock-brokerage-exchange-webapp/tree/master/stock-exchange-webapp/blob/master/src/app/config``
 
 #### Running the application
 * Deploy each of the applications from Eclipse onto the Apache Tomcat server
