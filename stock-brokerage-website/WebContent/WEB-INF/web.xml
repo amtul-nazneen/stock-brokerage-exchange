@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:web="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	id="WebApp_ID" version="2.5">
+	<display-name>LibraryManagementSystem</display-name>
+	<!-- Sample Servlet -->
+	<servlet>
+		<display-name>CheckIn</display-name>
+		<servlet-name>CheckIn</servlet-name>
+		<servlet-class>app.servlet.TestServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CheckIn</servlet-name>
+		<url-pattern>/Test</url-pattern>
+	</servlet-mapping>
+	<!-- ForgotPassword Servlet -->
+	<servlet>
+		<display-name>ForgotPassword</display-name>
+		<servlet-name>ForgotPassword</servlet-name>
+		<servlet-class>app.servlet.ForgotPassword</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ForgotPassword</servlet-name>
+		<url-pattern>/ForgotPassword</url-pattern>
+	</servlet-mapping>
+	<!-- Login Servlet -->
+	<servlet>
+		<display-name>Login</display-name>
+		<servlet-name>Login</servlet-name>
+		<servlet-class>app.servlet.Login</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Login</servlet-name>
+		<url-pattern>/Login</url-pattern>
+	</servlet-mapping>
+	<!-- Reset Password Servlet -->
+	<servlet>
+		<display-name>ResetPassword</display-name>
+		<servlet-name>ResetPassword</servlet-name>
+		<servlet-class>app.servlet.ResetPassword</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ResetPassword</servlet-name>
+		<url-pattern>/ResetPassword</url-pattern>
+	</servlet-mapping>
+	<!-- Registration Servlet -->
+	<servlet>
+		<display-name>Registration</display-name>
+		<servlet-name>Registration</servlet-name>
+		<servlet-class>app.servlet.Registration</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Registration</servlet-name>
+		<url-pattern>/Registration</url-pattern>
+	</servlet-mapping>
+		<!-- Recover account- forgot Pasword Step 2 -->
+	<servlet>
+		<display-name>RecoverAccount</display-name>
+		<servlet-name>RecoverAccount</servlet-name>
+		<servlet-class>app.servlet.RecoverAccount</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>RecoverAccount</servlet-name>
+		<url-pattern>/RecoverAccount</url-pattern>
+	</servlet-mapping>
+		<!-- Search Stocks -->
+	<servlet>
+		<display-name>SearchStocks</display-name>
+		<servlet-name>SearchStocks</servlet-name>
+		<servlet-class>app.servlet.SearchStocks</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SearchStocks</servlet-name>
+		<url-pattern>/SearchStocks</url-pattern>
+	</servlet-mapping>
+		<!-- Buy Options -->
+	<servlet>
+		<display-name>BuyOptions</display-name>
+		<servlet-name>BuyOptions</servlet-name>
+		<servlet-class>app.servlet.BuyOptions</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>BuyOptions</servlet-name>
+		<url-pattern>/BuyOptions</url-pattern>
+	</servlet-mapping> 
+<!-- Populate Company -->
+	<servlet>
+		<display-name>PopulateCompany</display-name>
+		<servlet-name>PopulateCompany</servlet-name>
+		<servlet-class>app.servlet.PopulateCompany</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>PopulateCompany</servlet-name>
+		<url-pattern>/PopulateCompany</url-pattern>
+	</servlet-mapping>
+	<!-- Buy Stock -->
+	<servlet>
+		<display-name>BuyStock</display-name>
+		<servlet-name>BuyStock</servlet-name>
+		<servlet-class>app.servlet.BuyStock</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>BuyStock</servlet-name>
+		<url-pattern>/BuyStock</url-pattern>
+	</servlet-mapping>
+		<!-- Purchase Options -->
+	<servlet>
+		<display-name>PurchaseOptions</display-name>
+		<servlet-name>PurchaseOptions</servlet-name>
+		<servlet-class>app.servlet.PurchaseOptions</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>PurchaseOptions</servlet-name>
+		<url-pattern>/PurchaseOptions</url-pattern>
+	</servlet-mapping>
+		<!-- Purchase Options -->
+	<servlet>
+		<display-name>MySchedules</display-name>
+		<servlet-name>MySchedules</servlet-name>
+		<servlet-class>app.servlet.MySchedules</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>MySchedules</servlet-name>
+		<url-pattern>/MySchedules</url-pattern>
+	</servlet-mapping>
+			<!-- Purchase Options -->
+	<servlet>
+		<display-name>MyStocks</display-name>
+		<servlet-name>MyStocks</servlet-name>
+		<servlet-class>app.servlet.MyStocks</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>MyStocks</servlet-name>
+		<url-pattern>/MyStocks</url-pattern>
+	</servlet-mapping>
+		<!-- View Bank Accounts --> 
+	<servlet>
+		<display-name>ViewAccounts</display-name>
+		<servlet-name>ViewAccounts</servlet-name>
+		<servlet-class>app.servlet.ViewAccounts</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ViewAccounts</servlet-name>
+		<url-pattern>/ViewAccounts</url-pattern>
+	</servlet-mapping>
+	<!-- Add Bank Accounts --> 
+	<servlet>
+		<display-name>AddAccount</display-name>
+		<servlet-name>AddAccount</servlet-name>
+		<servlet-class>app.servlet.AddAccount</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AddAccount</servlet-name>
+		<url-pattern>/AddAccount</url-pattern>
+	</servlet-mapping>
+	<!-- Transfer Amount --> 
+	<servlet>
+		<display-name>TransferAmount</display-name>
+		<servlet-name>TransferAmount</servlet-name>
+		<servlet-class>app.servlet.TransferAmount</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>TransferAmount</servlet-name>
+		<url-pattern>/TransferAmount</url-pattern>
+	</servlet-mapping>
+	<!-- Transfer Amount --> 
+	<servlet>
+		<display-name>SellStocks</display-name>
+		<servlet-name>SellStocks</servlet-name>
+		<servlet-class>app.servlet.SellStocks</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SellStocks</servlet-name>
+		<url-pattern>/SellStocks</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Transfer Amount --> 
+	<servlet>
+		<display-name>EditProfile</display-name>
+		<servlet-name>EditProfile</servlet-name>
+		<servlet-class>app.servlet.EditProfile</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>EditProfile</servlet-name>
+		<url-pattern>/EditProfile</url-pattern>
+	</servlet-mapping>
+	<!-- Transfer Amount --> 
+	<servlet>
+		<display-name>DeleteSchedule</display-name>
+		<servlet-name>DeleteSchedule</servlet-name>
+		<servlet-class>app.servlet.DeleteSchedule</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DeleteSchedule</servlet-name>
+		<url-pattern>/DeleteSchedule</url-pattern>
+	</servlet-mapping>
+	<!-- Sell Options  --> 
+	<servlet>
+		<display-name>SellOptions</display-name>
+		<servlet-name>SellOptions</servlet-name>
+		<servlet-class>app.servlet.SellOptions</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SellOptions</servlet-name>
+		<url-pattern>/SellOptions</url-pattern>
+	</servlet-mapping>
+	<!-- View Sell Schedules  --> 
+	<servlet>
+		<display-name>MySellSchedules</display-name>
+		<servlet-name>MySellSchedules</servlet-name>
+		<servlet-class>app.servlet.MySellSchedules</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>MySellSchedules</servlet-name>
+		<url-pattern>/MySellSchedules</url-pattern>
+	</servlet-mapping>
+	<!-- Delete Sell Schedules  --> 
+	<servlet>
+		<display-name>DeleteSellSchedule</display-name>
+		<servlet-name>DeleteSellSchedule</servlet-name>
+		<servlet-class>app.servlet.DeleteSellSchedule</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DeleteSellSchedule</servlet-name>
+		<url-pattern>/DeleteSellSchedule</url-pattern>
+	</servlet-mapping>
+	<!-- Welcome File --> 
+	<welcome-file-list>
+		<welcome-file>Home.jsp</welcome-file>
+	</welcome-file-list>
+	<error-page>
+    <error-code>404</error-code>
+    <location>/Unavailable.jsp</location>
+</error-page>
+</web-app>

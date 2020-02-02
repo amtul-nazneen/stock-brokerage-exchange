@@ -1,0 +1,44 @@
+Command to run to create certificate keystore:
+1. cd "C:\Program Files\Java\jdk1.8.0_191\bin"
+
+2. keytool -genkeypair -alias tomcat -keyalg RSA -keysize 1024 -dname "CN=localhost, OU=Organization, O=My Corporation, L=Richardson, S=TX, C=US" -validity 365 -keystore C:\Users\myuser\Documents\keystore
+	Enter keystore password:  
+
+	Re-enter new password: 
+
+	Enter key password for <tomcat>
+	(RETURN if same as keystore password):  
+
+3. keytool -importkeystore -srckeystore C:\Users\myuser\Documents\keystore -destkeystore C:\Users\myuser\Documents\keystore -deststoretype pkcs12
+
+
+4. In case of "PKIX path building failed" error, please add certificate to Java Cert store:
+
+     Option 1: http://stackoverflow.com/questions/9619030/resolving-javax-net-ssl-sslhandshakeexception-sun-security-validator-validatore
+
+		1. cd "C:\Program Files\Java\jdk1.8.0_191\bin"
+
+		2. First check if your certificate (with alias "tomcat") already in Java certificate keystore:
+
+			keytool -list -alias tomcat -keystore "C:\Program Files\Java\jdk1.8.0_191\jre\lib\security\cacerts"
+
+			    Note: 
+				a. The default password is "changeit".
+				b. To set/change the password run the following command:
+					keytool -storepasswd -storepass changeit -keystore "C:\Program Files\Java\jdk1.8.0_191\jre\lib\security\cacerts"
+
+
+		3. If your certificate is missing you can get it by downloading it with your browser and add it to the keystore with the following command:
+
+			keytool -import -noprompt -trustcacerts -alias tomcat -file "C:\Users\myuser\Documents\localhost.crt" -keystore "C:\Program Files\Java\jdk1.8.0_191\jre\lib\security\cacerts" -storepass changeit
+
+			    Note:
+				a. The default password is "changeit"			
+
+
+
+    Option 2: http://www.mkyong.com/webservices/jax-ws/suncertpathbuilderexception-unable-to-find-valid-certification-path-to-requested-target/
+			
+			Code needed by Option 2 can be downloaded at:
+				https://github.com/escline/InstallCert
+

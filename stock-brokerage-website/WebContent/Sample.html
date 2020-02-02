@@ -1,0 +1,227 @@
+<link href="https://unpkg.com/bootstrap-table@1.15.5/dist/bootstrap-table.min.css" rel="stylesheet">
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+    <title>Shopping List</title>
+</head>
+
+<body>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script src="https://momentjs.com/downloads/moment.min.js"></script>
+    <script src="https://unpkg.com/bootstrap-table@1.15.5/dist/bootstrap-table.min.js"></script>
+    <nav class="navbar navbar-dark bg-primary">
+        <a class="navbar-brand" href="Home.html">
+            <i class="fa fa-home" aria-hidden="true"></i>
+            Home
+        </a>
+        <a class="navbar-brand" href="ProfileInfo.html">
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            Profile Info
+        </a>
+        <a class="navbar-brand" href="OrderHistory.html">
+            <i class="fa fa-history" aria-hidden="true"></i>
+            Order History
+        </a>
+        <a class="navbar-brand" href="ShoppingList.html">
+            <i class="fa fa-list" aria-hidden="true"></i>
+            Shopping List
+        </a>
+        <a class="navbar-brand" href="ContactUs.html">
+            <i class="fa fa-phone" aria-hidden="true"></i>
+            Contact Us
+        </a>
+    </nav>
+    <div class="container">
+        <table id="table" data-sort-stable="true" data-height="520">
+            <thead class="thead-dark">
+                <tr>
+                    <th data-field="name" data-sortable="true" data-formatter="nameFormat">Item Name</th>
+                    <th data-field="quantity" data-sortable="true" data-formatter="quantityFormat">Item Quantity</th>
+                    <th data-field="requiredDate" data-sortable="true" data-formatter="dateFormat">Item Required Date
+                    </th>
+                    <th data-field="operate" data-formatter="operateFormatter">Operations
+                    </th>
+                    <!-- data-events="operateEvents" -->
+                </tr>
+            </thead>
+        </table>
+        <button type="button" class="btn btn-dark" onclick="addRow()">Add Row</button>
+        <textarea class="form-control" id="outputTextarea" rows="3"></textarea>
+    </div>
+    <script>
+        var shoppingList = [
+            {
+                id: 1,
+                name: 'Item 1',
+                quantity: 1,
+                requiredDate: '10-1-1995'
+            },
+            {
+                id: 2,
+                name: 'Item 2',
+                quantity: 2,
+                requiredDate: '10-1-1996'
+            },
+            {
+                id: 3,
+                name: 'Item 3',
+                quantity: 3,
+                requiredDate: '10-1-1997'
+            },
+            {
+                id: 4,
+                name: 'Item 4',
+                quantity: 4,
+                requiredDate: '10-1-1998'
+            },
+            {
+                id: 5,
+                name: 'Item 5',
+                quantity: 5,
+                requiredDate: '10-1-1999'
+            },
+            {
+                id: 6,
+                name: 'Item 6',
+                quantity: 6,
+                requiredDate: '10-1-2000'
+            },
+            {
+                id: 7,
+                name: 'Item 7',
+                quantity: 7,
+                requiredDate: '10-1-2001'
+            },
+            {
+                id: 8,
+                name: 'Item 8',
+                quantity: 8,
+                requiredDate: '10-1-2002'
+            },
+            {
+                id: 9,
+                name: 'Item 9',
+                quantity: 9,
+                requiredDate: '10-1-2003'
+            },
+            {
+                id: 10,
+                name: 'Item 10',
+                quantity: 10,
+                requiredDate: '10-1-2004'
+            }
+        ]
+
+        var $table = $('#table')
+
+        $(function () {
+            $('#table').bootstrapTable({
+                data: shoppingList
+            })
+        })
+
+        function nameFormat(value, row, index) {
+            return ['<input type="text" id="nameid' + index + '" value="' + value + '" readonly="true" onClick="editName(' + index + ')" onblur="updateName(' + index + ')">'];
+        }
+
+        function quantityFormat(value, row, index) {
+            return ['<input type="text" id="quantityid' + index + '" value="' + value + '" readonly="true" onClick="editQuantity(' + index + ')" onblur="updateQuantity(' + index + ')">'];
+        }
+
+        function dateFormat(value, row, index) {
+            return ['<input type="text" id="dateid' + index + '" value="' + value + '" readonly="true" onClick="editDate(' + index + ')" onblur="updateDate(' + index + ')">'];
+        }
+
+        function currencyFormat(value, row, index) {
+            return "$" + value;
+        }
+
+        function operateFormatter(value, row, index) {
+            return [
+                '<a class="remove" href="javascript:void(0)" onclick="removeRow(' + index + ')" title="Remove">',
+                '<i class="fa fa-trash"></i>',
+                '</a>'
+            ].join('')
+        }
+
+        function addRow() {
+            console.log("RowId is " + rowId);
+            var rowId = 100 + ~~(Math.random() * 100)
+            $('#table').bootstrapTable('insertRow', {
+                index: 0,
+                row: {
+                    id: rowId,
+                    name: '',
+                    quantity: '',
+                    requiredDate: ''
+                }
+            });
+        }
+
+        function removeRow(index) {
+            var itemId = shoppingList[index];
+            var idArray = [itemId.id];
+            $table.bootstrapTable('remove', {
+                field: 'id',
+                values: idArray
+            })
+        }
+
+        function editName(index) {
+            $('#nameid' + index).attr("readonly", false);
+        }
+
+        function editQuantity(index) {
+            $('#quantityid' + index).attr("readonly", false);
+        }
+
+        function editDate(index) {
+            $('#dateid' + index).attr("readonly", false);
+        }
+
+        function updateName(index) {
+            $('#nameid' + index).attr("readonly", true);
+            if ($('#nameid' + index).val() != shoppingList[index].name) {
+                shoppingList[index].name = $('#nameid' + index).val();
+                outPutData();
+            }
+        }
+
+        function updateQuantity(index) {
+            $('#quantityid' + index).attr("readonly", true);
+            if (shoppingList[index].quantity != $('#quantityid' + index).val()) {
+                shoppingList[index].quantity = $('#quantityid' + index).val();
+                outPutData();
+            }
+        }
+
+        function updateDate(index) {
+            $('#dateid' + index).attr("readonly", true);
+            if (shoppingList[index].requiredDate != $('#dateid' + index).val()) {
+                shoppingList[index].requiredDate = $('#dateid' + index).val();
+                outPutData();
+            }
+        }
+
+        function outPutData(textToOutput) {
+            $('#outputTextarea').append('Updated Shopping List Data\r');
+            $('#outputTextarea').append(JSON.stringify(shoppingList));
+            $('#outputTextarea').append('&nbsp;\r');
+        }
+
+    </script>
+</body>
+
+</html>
